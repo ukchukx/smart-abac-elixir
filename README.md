@@ -17,7 +17,7 @@ Add to your `mix.exs` file:
   defp deps do
     [
       # ...
-      {:smart_abac, "git@github.com:swarm-citi-usp/smart-abac-elixir.git"}
+      {:smart_abac, git: "https://github.com/ukchukx/smart-abac-elixir.git"}
     ]
   end
 ```
