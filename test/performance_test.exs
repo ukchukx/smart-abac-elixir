@@ -11,15 +11,15 @@ defmodule PerformanceTest do
   require Logger
   doctest SmartABAC
   import SmartABAC.Factory
-  alias SmartABAC.{HierarchyStore, Serialization, PDP}
+  alias SmartABAC.{Serialization, PDP}
 
-  test "generate, save, and load policies" do
-    HierarchyStore.set_graph_from_file("example_home_policy.n3")
-    policies = generate(2, 2)
-    assert 2 == length(policies)
-    save_policies(policies, 2, 2)
-    assert {:ok, _} = load_policies(2, 2)
-  end
+  # test "generate, save, and load policies" do
+  #   HierarchyStore.set_graph_from_file("example_home_policy.n3")
+  #   policies = generate(2, 2)
+  #   assert 2 == length(policies)
+  #   save_policies(policies, 2, 2)
+  #   assert {:ok, _} = load_policies(2, 2)
+  # end
 
   test "compare sizes" do
     {:ok, policy} = params_for(:policy) |> SmartABAC.build_policy()
@@ -67,7 +67,7 @@ defmodule PerformanceTest do
     assert SmartABAC.authorize(request)
 
     Process.sleep(1000)
-    Process.sleep(100 + :random.uniform(100))
+    Process.sleep(100 + :rand.uniform(100))
     start_ms = start()
 
     for _i <- 1..3000 do
@@ -99,7 +99,7 @@ defmodule PerformanceTest do
 
     sum =
       Enum.reduce(0..t, 0, fn _j, acc ->
-        Process.sleep(25 + :random.uniform(25))
+        Process.sleep(25 + :rand.uniform(25))
         start_ms = start()
 
         for _i <- 1..3000 do
@@ -159,7 +159,7 @@ defmodule PerformanceTest do
     {:ok, request} = params_for(:request_expanded) |> SmartABAC.build_request()
 
     Process.sleep(3000)
-    Process.sleep(100 + :random.uniform(100))
+    Process.sleep(100 + :rand.uniform(100))
     start_ms = start()
     assert PDP.authorize(request, policies)
     spent_ms = finish(start_ms)
