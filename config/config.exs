@@ -8,13 +8,8 @@
 
 import Config
 
-config :smart_abac, hierarchy_client: SmartABAC.Hierarchy
-config :smart_abac, hierarchy_file: "example_home_policy.n3"
-
-config :smart_abac, debug_pdp: false
+config :smart_abac, hierarchy_client: SmartABAC.Hierarchy, hierarchy_file: "example_home_policy.n3", debug_pdp: false
 
 config :logger, level: :debug
-
-config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 
 import_config "#{Mix.env()}.exs"

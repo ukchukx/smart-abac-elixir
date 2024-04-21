@@ -37,7 +37,6 @@ defmodule SmartABAC.MixProject do
       {:cbor, "~> 1.0"},
       {:ecto, "~> 3.11"},
       {:ex_machina, "~> 2.4", only: :test},
-      {:tzdata, "~> 1.1"},
       {:jason, "~> 1.4"},
       {:decorator, "~> 1.4"}
     ]
