@@ -53,7 +53,7 @@ defmodule SmartABAC.PDP do
   @doc """
   Tests whether the request attributes are allowed by a policy.
   """
-  Application.get_env(:smart_abac, :debug_pdp) && @decorate log(:debug)
+  Application.compile_env(:smart_abac, :debug_pdp) && @decorate log(:debug)
 
   def match_attrs(request_attrs, policy_attrs) do
     policy_attrs

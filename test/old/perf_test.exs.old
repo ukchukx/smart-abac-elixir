@@ -50,7 +50,7 @@ defmodule PerfTest do
   end
 
   def write_policies_to_file(ps, m, n) do
-    File.write("./priv/generated/#{m}-#{n}.json", Poison.encode!(ps, pretty: true))
+    File.write("./priv/generated/#{m}-#{n}.json", Jason.encode!(ps, pretty: true))
   end
 
   def insert_known_policy_at_half(ps, known_policy) do
@@ -67,7 +67,7 @@ defmodule PerfTest do
   end
 
   def write_to_file(tests) do
-    File.write("./priv/results.json", Poison.encode!(tests, pretty: true))
+    File.write("./priv/results.json", Jason.encode!(tests, pretty: true))
   end
 
   @tag :skip

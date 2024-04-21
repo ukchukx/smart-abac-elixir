@@ -6,7 +6,7 @@
 # the terms and conditions of the GNU Lesser General Public License v2.1.
 # See the file LICENSE in the top level directory for more details.
 
-use Mix.Config
+import Config
 
 config :smart_abac, debug_pdp: false
 
